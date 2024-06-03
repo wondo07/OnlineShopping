@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/onlineshopping?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+    password: 4298
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    #    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        # Fetch size ?? 1+N ?? ?? ??
+        default_batch_fetch_size: 1000
+        # Entity? ???? ??? '' ?? ??
+        use_sql_comments: true
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  #        auto_quote_keyword: true
+
+  sql:
+    init:
+      mode: always
+
+  jwt:
+    secret : vmfhaltmskdlstkfkdgodyroqkfwkdbalroqkfwkdbalaaaaaaaaaaaaaaaabbbbb
+
+
+
+  jackson:
+    serialization:
+      fail-on-empty-beans : false # ??? ???? ?? ?? ?? ?? ??
+logging.level:
+  org.hibernate.SQL: debug
+  org:
+    hibernate:
+      type:
+        descriptor:
+          sql:
+            org.hibernate.type.descriptor.sql.BasicBinder: trace
+    springframework:
+      web.servlet: debug
